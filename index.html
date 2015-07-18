@@ -1,1 +1,76 @@
-init
+<!DOCTYPE html>
+<html>
+<head>
+  <title>yantl.js website</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/yantl.js"></script>
+  <script type="text/javascript" src="/tidy.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      var $yantlInput = $('#yantl-input');
+
+      $yantlInput.on('input', function () {
+        var yantlInputText = $yantlInput.val();
+        var yantlOutput = YANTL.parse(yantlInputText);
+        $('#yantl-output').text(tidy_html5(yantlOutput, {
+          "indent": "auto",
+          "indent-spaces": 2,
+          "wrap": 80,
+          "markup": true,
+          "output-xml": false,
+          "numeric-entities": true,
+          "quote-marks": true,
+          "quote-nbsp": false,
+          "show-body-only": false,
+          "quote-ampersand": false,
+          "break-before-br": true,
+          "uppercase-tags": false,
+          "uppercase-attributes": false,
+          "drop-font-tags": true,
+          "tidy-mark": false
+        }));
+      });
+
+      $yantlInput.trigger('input');
+    });
+  </script>
+  <style type="text/css">
+    #yantl-input {
+      float: left;
+    }
+
+    #yantl-output {
+      float: left;
+      width: 400px;
+      margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+<textarea id="yantl-input" rows="50" cols="50">
+!doctype(html)
+html(lang="en") {
+  head {
+    meta(charset="utf-8")
+    title { "Yantl example" }
+  }
+  body {
+    h1#title {
+      "hello world"
+    }
+    h2#subtitle(style="font-size: 0.75em;") {
+      "from Yanti"
+    }
+    section#content {
+      "blah blah blah"
+      "on the same line, blah blah blah";"bababa"
+      "on a new line, blah blah blah"
+    }
+  }
+}
+</textarea>
+<pre id="yantl-output"></pre>
+
+</body>
+</html>
