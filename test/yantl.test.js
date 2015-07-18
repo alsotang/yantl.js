@@ -39,7 +39,7 @@ html(lang="en") {
 <title>Yantl example</title></head>
 <body><h1 id="title">hello world</h1>
 <h2 style="font-size: 0.75em;"></h2>
-<null id="subtitle">from Yanti</null>
+<div id="subtitle">from Yanti</div>
 <section id="content">blah blah blah
 on the same line, blah blah blah
 bababa
