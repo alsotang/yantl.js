@@ -13,23 +13,7 @@
       $yantlInput.on('input', function () {
         var yantlInputText = $yantlInput.val();
         var yantlOutput = YANTL.parse(yantlInputText);
-        $('#yantl-output').text(tidy_html5(yantlOutput, {
-          "indent": "auto",
-          "indent-spaces": 2,
-          "wrap": 80,
-          "markup": true,
-          "output-xml": false,
-          "numeric-entities": true,
-          "quote-marks": true,
-          "quote-nbsp": false,
-          "show-body-only": false,
-          "quote-ampersand": false,
-          "break-before-br": true,
-          "uppercase-tags": false,
-          "uppercase-attributes": false,
-          "drop-font-tags": true,
-          "tidy-mark": false
-        }));
+        $('#yantl-output').text(yantlOutput);
       });
 
       $yantlInput.trigger('input');
